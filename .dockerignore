@@ -1,0 +1,10 @@
+vendor
+node_modules
+.env
+/storage/*.key
+/storage/debugbar
+.env.local
+.idea
+.vscode
+.DS_Store
+.git
