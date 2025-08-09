@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+echo "🔧 Initialisation du conteneur..."
+
 # 1) S'assurer que storage et cache existent avec bons droits
 mkdir -p /var/www/storage /var/www/bootstrap/cache
 chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache

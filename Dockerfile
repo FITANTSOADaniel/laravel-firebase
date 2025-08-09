@@ -17,15 +17,15 @@ WORKDIR /var/www
 # Copier tous les fichiers du projet
 COPY . .
 
-# Installer dépendances PHP (optimisées)
+# Installer dépendances PHP (optimisées pour prod)
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
-# Copier script d'entrypoint
-COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
+# Copier script d'entrypoint à la racine
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-# Exposer le port
+# Exposer le port utilisé par Render
 EXPOSE 10000
 
 # Commande par défaut
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
