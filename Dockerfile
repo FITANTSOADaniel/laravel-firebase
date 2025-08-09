@@ -20,10 +20,6 @@ COPY . .
 # Installer dépendances PHP (optimisées)
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
-# Donner les droits nécessaires à Laravel
-RUN chown -R www-data:www-data /var/www \
-    && chmod -R 755 /var/www/storage /var/www/bootstrap/cache
-
 # Copier script d'entrypoint
 COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
